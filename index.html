@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GABON SOUVERAIN — Carrousel</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Bebas+Neue&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --or: #C9A84C;
+    --vert: #009A44;
+    --bleu: #003F87;
+    --noir: #0A0A0A;
+    --creme: #F5F0E8;
+    --rouge: #C0392B;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #111;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    font-family: 'Source Serif 4', serif;
+    padding: 20px;
+  }
+
+  h1.title-ui {
+    font-family: 'Bebas Neue', sans-serif;
+    color: var(--or);
+    letter-spacing: 6px;
+    font-size: 1.4rem;
+    margin-bottom: 24px;
+    text-align: center;
+    opacity: 0.85;
+  }
+
+  .carousel-wrapper {
+    position: relative;
+    width: 540px;
+    max-width: 100%;
+  }
+
+  .slides {
+    overflow: hidden;
+    border-radius: 4px;
+  }
+
+  .slide {
+    display: none;
+    width: 540px;
+    height: 675px;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.5s ease;
+  }
+  .slide.active { display: flex; }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* === SLIDE 1 — COUVERTURE === */
+  .slide-1 {
+    background: var(--noir);
+    overflow: hidden;
+  }
+  .slide-1 .bg-flag {
+    position: absolute; inset: 0;
+    display: flex;
+  }
+  .slide-1 .bg-flag .stripe {
+    flex: 1;
+    opacity: 0.12;
+  }
+  .slide-1 .bg-flag .stripe-vert { background: var(--vert); }
+  .slide-1 .bg-flag .stripe-jaune { background: var(--or); }
+  .slide-1 .bg-flag .stripe-bleu { background: var(--bleu); }
+  .slide-1 .grain {
+    position: absolute; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.08'/%3E%3C/svg%3E");
+    opacity: 0.3;
+  }
+  .slide-1 .content {
+    position: relative; z-index: 2;
+    text-align: center;
+    padding: 50px 40px;
+  }
+  .slide-1 .eyebrow {
+    font-family: 'Bebas Neue', sans-serif;
+    color: var(--vert);
+    letter-spacing: 8px;
+    font-size: 0.85rem;
+    margin-bottom: 20px;
+  }
+  .slide-1 .main-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 3.8rem;
+    line-height: 1.05;
+    color: var(--creme);
+    text-shadow: 0 0 80px rgba(201,168,76,0.3);
+  }
+  .slide-1 .main-title span { color: var(--or); }
+  .slide-1 .divider {
+    width: 80px; height: 3px;
+    background: linear-gradient(90deg, var(--vert), var(--or), var(--bleu));
+    margin: 28px auto;
+  }
+  .slide-1 .subtitle {
+    font-family: 'Source Serif 4', serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    color: rgba(245,240,232,0.75);
+    max-width: 360px;
+    line-height: 1.6;
+  }
+  .slide-1 .tag {
+    margin-top: 32px;
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 4px;
+    font-size: 0.75rem;
+    color: var(--or);
+    opacity: 0.7;
+  }
+
+  /* === SLIDE 2 — LE PARADOXE === */
+  .slide-2 {
+    background: var(--creme);
+    overflow: hidden;
+  }
+  .slide-2 .top-bar {
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 8px;
+    background: linear-gradient(90deg, var(--vert) 33%, var(--or) 33% 66%, var(--bleu) 66%);
+  }
+  .slide-2 .content {
+    padding: 50px 44px;
+    text-align: left;
+  }
+  .slide-2 .number {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 7rem;
+    color: var(--or);
+    opacity: 0.15;
+    position: absolute;
+    right: 30px;
+    top: 20px;
+    line-height: 1;
+  }
+  .slide-2 .label {
+    font-family: 'Bebas Neue', sans-serif;
+    color: var(--vert);
+    letter-spacing: 5px;
+    font-size: 0.8rem;
+    margin-bottom: 20px;
+  }
+  .slide-2 h2 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 2.4rem;
+    line-height: 1.2;
+    color: var(--noir);
+    margin-bottom: 28px;
+  }
+  .slide-2 h2 em {
+    font-style: italic;
+    color: var(--rouge);
+  }
+  .slide-2 .stat-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 8px;
+  }
+  .stat-box {
+    background: var(--noir);
+    color: var(--creme);
+    padding: 18px 20px;
+    border-radius: 3px;
+  }
+  .stat-box .val {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.2rem;
+    color: var(--or);
+    line-height: 1;
+  }
+  .stat-box .desc {
+    font-size: 0.78rem;
+    margin-top: 6px;
+    opacity: 0.8;
+    line-height: 1.4;
+  }
+
+  /* === SLIDE 3 — LA PRISON INVISIBLE === */
+  .slide-3 {
+    background: var(--noir);
+    overflow: hidden;
+  }
+  .slide-3 .wire {
+    position: absolute;
+    top: 0; bottom: 0;
+    width: 1px;
+    background: rgba(201,168,76,0.15);
+  }
+  .slide-3 .wire:nth-child(1) { left: 20%; }
+  .slide-3 .wire:nth-child(2) { left: 40%; }
+  .slide-3 .wire:nth-child(3) { left: 60%; }
+  .slide-3 .wire:nth-child(4) { left: 80%; }
+  .slide-3 .content {
+    position: relative; z-index: 2;
+    padding: 48px 44px;
+    width: 100%;
+  }
+  .slide-3 .label {
+    font-family: 'Bebas Neue', sans-serif;
+    color: var(--or);
+    letter-spacing: 6px;
+    font-size: 0.8rem;
+    margin-bottom: 16px;
+  }
+  .slide-3 h2 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 2.3rem;
+    color: var(--creme);
+    margin-bottom: 32px;
+    line-height: 1.2;
+  }
+  .chain-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 18px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .chain-item:last-child { border-bottom: none; margin-bottom: 0; }
+  .chain-icon {
+    width: 36px; height: 36px; min-width: 36px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem;
+  }
+  .chain-icon.or { background: rgba(201,168,76,0.2); border: 1px solid var(--or); }
+  .chain-icon.rouge { background: rgba(192,57,43,0.2); border: 1px solid var(--rouge); }
+  .chain-icon.bleu { background: rgba(0,63,135,0.3); border: 1px solid #5B9BD5; }
+  .chain-text .t { font-weight: 600; color: var(--or); font-size: 0.9rem; margin-bottom: 3px; }
+  .chain-text .d { color: rgba(245,240,232,0.65); font-size: 0.82rem; line-height: 1.5; }
+
+  /* === SLIDE 4 — MIROIR 1973 === */
+  .slide-4 {
+    background: var(--bleu);
+    overflow: hidden;
+  }
+  .slide-4 .bg-text {
+    position: absolute;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 12rem;
+    color: rgba(255,255,255,0.04);
+    top: -20px; left: -10px;
+    line-height: 1;
+    white-space: nowrap;
+  }
+  .slide-4 .content {
+    position: relative; z-index: 2;
+    padding: 48px 44px;
+    width: 100%;
+  }
+  .slide-4 .label {
+    font-family: 'Bebas Neue', sans-serif;
+    color: var(--or);
+    letter-spacing: 5px;
+    font-size: 0.8rem;
+    margin-bottom: 20px;
+  }
+  .slide-4 h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 900;
+    color: #fff;
+    margin-bottom: 30px;
+    line-height: 1.25;
+  }
+  .compare-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 24px;
+  }
+  .compare-col {
+    background: rgba(255,255,255,0.1);
+    border-radius: 4px;
+    padding: 20px 16px;
+  }
+  .compare-col .flag-label {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1rem;
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+  }
+  .compare-col.france .flag-label { color: #4FC3F7; }
+  .compare-col.gabon .flag-label { color: var(--or); }
+  .compare-col p { font-size: 0.8rem; color: rgba(255,255,255,0.8); line-height: 1.55; }
+  .slide-4 .verdict {
+    background: var(--or);
+    color: var(--noir);
+    padding: 14px 20px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    line-height: 1.55;
+    font-style: italic;
+    border-radius: 3px;
+  }
+
+  /* === SLIDE 5 — LES 5 LEVIERS === */
+  .slide-5 {
+    background: var(--creme);
+    overflow: hidden;
+  }
+  .slide-5 .top-bar {
+    position: absolute; top: 0; left: 0; right: 0; height: 8px;
+    background: linear-gradient(90deg, var(--vert) 33%, var(--or) 33% 66%, var(--bleu) 66%);
+  }
+  .slide-5 .content { padding: 44px 40px; }
+  .slide-5 .label {
+    font-family: 'Bebas Neue', sans-serif;
+    color: var(--vert);
+    letter-spacing: 5px; font-size: 0.8rem;
+    margin-bottom: 16px;
+  }
+  .slide-5 h2 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 2rem;
+    color: var(--noir);
+    margin-bottom: 28px;
+    line-height: 1.2;
+  }
+  .levier {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 14px;
+    padding: 12px 16px;
+    border-left: 3px solid var(--vert);
+    background: rgba(0,154,68,0.05);
+    border-radius: 0 4px 4px 0;
+    transition: all 0.2s;
+  }
+  .levier:nth-child(2) { border-color: var(--or); background: rgba(201,168,76,0.07); }
+  .levier:nth-child(3) { border-color: var(--bleu); background: rgba(0,63,135,0.06); }
+  .levier:nth-child(4) { border-color: var(--rouge); background: rgba(192,57,43,0.06); }
+  .levier:nth-child(5) { border-color: #7B3F9E; background: rgba(123,63,158,0.06); }
+  .levier-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.8rem;
+    line-height: 1;
+    opacity: 0.35;
+    color: var(--noir);
+    min-width: 30px;
+  }
+  .levier-text .t { font-weight: 700; font-size: 0.88rem; color: var(--noir); }
+  .levier-text .d { font-size: 0.76rem; color: #555; margin-top: 2px; line-height: 1.4; }
+
+  /* === SLIDE 6 — APPEL SOUVERAIN === */
+  .slide-6 {
+    background: var(--noir);
+    overflow: hidden;
+  }
+  .slide-6 .glow {
+    position: absolute;
+    width: 400px; height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,168,76,0.12) 0%, transparent 70%);
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .slide-6 .content {
+    position: relative; z-index: 2;
+    text-align: center;
+    padding: 50px 44px;
+  }
+  .slide-6 .top-line {
+    font-family: 'Bebas Neue', sans-serif;
+    color: var(--vert);
+    letter-spacing: 8px;
+    font-size: 0.8rem;
+    margin-bottom: 24px;
+  }
+  .slide-6 blockquote {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.65rem;
+    color: var(--creme);
+    line-height: 1.5;
+    margin-bottom: 30px;
+  }
+  .slide-6 blockquote span { color: var(--or); }
+  .slide-6 .divider {
+    width: 60px; height: 2px;
+    background: var(--or);
+    margin: 0 auto 28px;
+  }
+  .slide-6 .author-block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+  }
+  .slide-6 .author-dot {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--vert), var(--bleu));
+    border: 2px solid var(--or);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Bebas Neue', sans-serif;
+    color: #fff;
+    font-size: 1.1rem;
+  }
+  .slide-6 .author-info .name {
+    font-family: 'Bebas Neue', sans-serif;
+    color: var(--or);
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+  }
+  .slide-6 .author-info .role {
+    font-size: 0.72rem;
+    color: rgba(245,240,232,0.55);
+    margin-top: 2px;
+  }
+  .slide-6 .hashtags {
+    margin-top: 28px;
+    font-family: 'Bebas Neue', sans-serif;
+    color: var(--or);
+    letter-spacing: 3px;
+    font-size: 0.72rem;
+    opacity: 0.6;
+  }
+
+  /* === NAVIGATION === */
+  .nav-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 20px;
+  }
+  .nav-btn {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(201,168,76,0.4);
+    color: var(--or);
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.2s;
+  }
+  .nav-btn:hover { background: var(--or); color: var(--noir); }
+  .dots {
+    display: flex; gap: 8px;
+  }
+  .dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.2);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .dot.active { background: var(--or); transform: scale(1.3); }
+
+  .slide-counter {
+    font-family: 'Bebas Neue', sans-serif;
+    color: rgba(201,168,76,0.5);
+    letter-spacing: 3px;
+    font-size: 0.8rem;
+    margin-top: 10px;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+
+<h1 class="title-ui">GABON SOUVERAIN — CARROUSEL RÉSEAUX SOCIAUX</h1>
+
+<div class="carousel-wrapper">
+  <div class="slides">
+
+    <!-- SLIDE 1 : COUVERTURE -->
+    <div class="slide slide-1 active">
+      <div class="bg-flag">
+        <div class="stripe stripe-vert"></div>
+        <div class="stripe stripe-jaune"></div>
+        <div class="stripe stripe-bleu"></div>
+      </div>
+      <div class="grain"></div>
+      <div class="content">
+        <div class="eyebrow">PLATEFORME / AGENCE NOAH</div>
+        <div class="main-title">GABON :<br><span>SORTIR DE</span><br>LA PRISON</div>
+        <div class="divider"></div>
+        <div class="subtitle">Le peuple le plus riche du monde,<br>rendu pauvre par un système<br>qui ne dit pas son nom.</div>
+        <div class="tag">NOTE POLITIQUE SOUVERAINE — 2025</div>
+      </div>
+    </div>
+
+    <!-- SLIDE 2 : LE PARADOXE -->
+    <div class="slide slide-2">
+      <div class="top-bar"></div>
+      <div class="number">02</div>
+      <div class="content">
+        <div class="label">LE PARADOXE GABONAIS</div>
+        <h2>Un peuple <em>riche</em>,<br>délibérément<br>appauvri.</h2>
+        <div class="stat-grid">
+          <div class="stat-box">
+            <div class="val">88%</div>
+            <div class="desc">du territoire couvert de forêts tropicales primaires parmi les plus riches du monde</div>
+          </div>
+          <div class="stat-box">
+            <div class="val">#1</div>
+            <div class="desc">Réserves mondiales de manganèse. Plus pétrole, gaz, uranium, biodiversité</div>
+          </div>
+          <div class="stat-box">
+            <div class="val">2.5M</div>
+            <div class="desc">habitants seulement sur 268 000 km². Une richesse par tête exceptionnelle.</div>
+          </div>
+          <div class="stat-box">
+            <div class="val">≈40%</div>
+            <div class="desc">de la population sous le seuil de pauvreté. La contradiction la plus scandaleuse d'Afrique.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 3 : LA PRISON INVISIBLE -->
+    <div class="slide slide-3">
+      <div class="wire"></div><div class="wire"></div>
+      <div class="wire"></div><div class="wire"></div>
+      <div class="content">
+        <div class="label">LA PRISON QUI NE DIT PAS SON NOM</div>
+        <h2>Les murs invisibles<br>du FCFA</h2>
+        <div class="chain-item">
+          <div class="chain-icon or">⛓</div>
+          <div class="chain-text">
+            <div class="t">Réserves captées à Paris</div>
+            <div class="d">50 % des réserves de change gabonaises déposées au Trésor français — pour financer la dette française.</div>
+          </div>
+        </div>
+        <div class="chain-item">
+          <div class="chain-icon rouge">🔒</div>
+          <div class="chain-text">
+            <div class="t">Zéro souveraineté monétaire</div>
+            <div class="d">La BEAC fixe les taux depuis Yaoundé sans mandat gabonais. Aucun levier sur la création monétaire nationale.</div>
+          </div>
+        </div>
+        <div class="chain-item">
+          <div class="chain-icon bleu">💸</div>
+          <div class="chain-text">
+            <div class="t">Endettement structurel forcé</div>
+            <div class="d">Interdit de financement direct par sa banque centrale, le Gabon emprunte sur les marchés ce qu'il pourrait créer lui-même.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 4 : MIROIR 1973 -->
+    <div class="slide slide-4">
+      <div class="bg-text">1973</div>
+      <div class="content">
+        <div class="label">LE MIROIR STRUCTUREL</div>
+        <h2>La Loi de 1973<br>& le FCFA :<br>même mécanique</h2>
+        <div class="compare-block">
+          <div class="compare-col france">
+            <div class="flag-label">🇫🇷 FRANCE — 1973</div>
+            <p>Pompidou & Giscard interdisent à l'État de se financer directement auprès de la Banque de France. Il doit désormais passer par les banques privées et payer des intérêts.</p>
+          </div>
+          <div class="compare-col gabon">
+            <div class="flag-label">🇬🇦 GABON — FCFA</div>
+            <p>Version aggravée : le Gabon ne contrôle ni sa banque centrale, ni ses réserves, ni ses taux. Ses richesses financent Paris pendant qu'il s'endette à l'extérieur.</p>
+          </div>
+        </div>
+        <div class="verdict">
+          « Là où la France a gardé une marge nationale, le Gabon n'a aucun contrôle. Ses propres réserves financent le Trésor étranger qui le contrôle. »
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 5 : 5 LEVIERS -->
+    <div class="slide slide-5">
+      <div class="top-bar"></div>
+      <div class="content">
+        <div class="label">LA VOIE DE LA RUPTURE SOUVERAINE</div>
+        <h2>5 Leviers<br>pour libérer<br>le Gabon</h2>
+        <div class="levier">
+          <div class="levier-num">1</div>
+          <div class="levier-text">
+            <div class="t">Souveraineté Monétaire</div>
+            <div class="d">Réformer le FCFA — banque centrale africaine indépendante, réserves sur sol africain.</div>
+          </div>
+        </div>
+        <div class="levier">
+          <div class="levier-num">2</div>
+          <div class="levier-text">
+            <div class="t">Transformation Locale Obligatoire</div>
+            <div class="d">Bois, manganèse, pétrole transformés au Gabon avant export. ×10 sur la valeur générée.</div>
+          </div>
+        </div>
+        <div class="levier">
+          <div class="levier-num">3</div>
+          <div class="levier-text">
+            <div class="t">Budget Souverain d'Investissement</div>
+            <div class="d">Protéger l'investissement national contre les conditionnalités du FMI.</div>
+          </div>
+        </div>
+        <div class="levier">
+          <div class="levier-num">4</div>
+          <div class="levier-text">
+            <div class="t">Diplomatie Économique Offensive</div>
+            <div class="d">BRICS, crédits carbone, multipolarité — le Gabon sujet de la géopolitique mondiale.</div>
+          </div>
+        </div>
+        <div class="levier">
+          <div class="levier-num">5</div>
+          <div class="levier-text">
+            <div class="t">Justice Économique & Rapatriement</div>
+            <div class="d">Confiscation des rentes illicites — chaque franc rapatrié construit le Gabon souverain.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 6 : APPEL SOUVERAIN -->
+    <div class="slide slide-6">
+      <div class="glow"></div>
+      <div class="content">
+        <div class="top-line">PLATEFORME NOAH — LIBREVILLE, GABON</div>
+        <blockquote>
+          « Que le Gabon ne soit plus jamais<br><span>riche pour les autres</span><br>et pauvre pour les siens. »
+        </blockquote>
+        <div class="divider"></div>
+        <div class="author-block">
+          <div class="author-dot">PN</div>
+          <div class="author-info">
+            <div class="name">Paul Ntoutoume Ndong</div>
+            <div class="role">Expert en Politique Publique & Ingénierie Fiscale<br>Fondateur — Plateforme/Agence NOAH, Gabon</div>
+          </div>
+        </div>
+        <div class="hashtags">#GabonSouverain &nbsp;·&nbsp; #FCFA &nbsp;·&nbsp; #SouverainetéMonétaire &nbsp;·&nbsp; #NOAH</div>
+      </div>
+    </div>
+
+  </div><!-- /slides -->
+
+  <div class="nav-bar">
+    <button class="nav-btn" id="prevBtn">&#8592;</button>
+    <div class="dots" id="dotsContainer"></div>
+    <button class="nav-btn" id="nextBtn">&#8594;</button>
+  </div>
+  <div class="slide-counter" id="counter">1 / 6</div>
+</div><!-- /wrapper -->
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  const dotsContainer = document.getElementById('dotsContainer');
+  const counter = document.getElementById('counter');
+  let current = 0;
+
+  slides.forEach((_, i) => {
+    const d = document.createElement('div');
+    d.className = 'dot' + (i === 0 ? ' active' : '');
+    d.addEventListener('click', () => goTo(i));
+    dotsContainer.appendChild(d);
+  });
+
+  function goTo(n) {
+    slides[current].classList.remove('active');
+    document.querySelectorAll('.dot')[current].classList.remove('active');
+    current = (n + slides.length) % slides.length;
+    slides[current].classList.add('active');
+    document.querySelectorAll('.dot')[current].classList.add('active');
+    counter.textContent = (current + 1) + ' / ' + slides.length;
+  }
+
+  document.getElementById('prevBtn').addEventListener('click', () => goTo(current - 1));
+  document.getElementById('nextBtn').addEventListener('click', () => goTo(current + 1));
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight') goTo(current + 1);
+    if (e.key === 'ArrowLeft') goTo(current - 1);
+  });
+</script>
+</body>
+</html>
