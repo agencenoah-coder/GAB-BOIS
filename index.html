@@ -75,15 +75,15 @@
         nav ul {
             list-style: none;
             display: flex;
-            gap: 32px;
+            gap: 20px;
         }
 
         nav a {
             text-decoration: none;
             color: var(--noir);
             font-family: 'Bebas Neue', sans-serif;
-            letter-spacing: 2px;
-            font-size: 0.9rem;
+            letter-spacing: 1.5px;
+            font-size: 0.85rem;
             transition: color 0.3s;
         }
 
@@ -620,6 +620,206 @@
         section {
             animation: fadeInUp 0.6s ease-out;
         }
+        /* WHATSAPP WIDGET */
+        .whatsapp-widget {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 9999;
+            background: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            transition: transform 0.3s;
+        }
+
+        .whatsapp-widget:hover {
+            transform: scale(1.1);
+        }
+
+        .whatsapp-tooltip {
+            position: absolute;
+            right: 70px;
+            background: white;
+            color: var(--noir);
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            white-space: nowrap;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+        }
+
+        .whatsapp-widget:hover .whatsapp-tooltip {
+            opacity: 1;
+        }
+
+        /* WOOD GALLERY 3D */
+        .essences-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+            perspective: 1000px;
+        }
+
+        .essence-card {
+            background: var(--creme);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            cursor: pointer;
+            border: 1px solid var(--or);
+            position: relative;
+            height: 220px;
+        }
+
+        .essence-card:hover {
+            transform: rotateY(180deg);
+        }
+
+        .essence-front, .essence-back {
+            backface-visibility: hidden;
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            padding: 20px;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .essence-back {
+            background: var(--or);
+            color: var(--noir);
+            transform: rotateY(180deg);
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .wood-texture {
+            width: 100%;
+            height: 100px;
+            background: #8B4513;
+            margin-bottom: 12px;
+            border-radius: 4px;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255,255,255,0.4);
+            font-size: 0.7rem;
+            font-family: 'Bebas Neue', sans-serif;
+            letter-spacing: 1px;
+        }
+
+        /* PRICING TABLE */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-top: 40px;
+        }
+
+        .pricing-card {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            text-align: center;
+            border: 2px solid var(--creme);
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .pricing-card.popular {
+            border-color: var(--or);
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            z-index: 10;
+        }
+
+        .pricing-card h3 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .price-tag {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2.5rem;
+            color: var(--bleu);
+            margin-bottom: 20px;
+        }
+
+        .price-tag span {
+            font-size: 1rem;
+            color: var(--gris);
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 30px;
+            text-align: left;
+            flex-grow: 1;
+        }
+
+        .pricing-features li {
+            margin-bottom: 10px;
+            padding-left: 24px;
+            position: relative;
+        }
+
+        .pricing-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--vert);
+            font-weight: bold;
+        }
+
+        /* DOCS SECTION */
+        .docs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .doc-item {
+            background: white;
+            padding: 24px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            border: 1px solid #ddd;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s;
+        }
+
+        .doc-item:hover {
+            border-color: var(--or);
+            background: var(--creme);
+        }
+
+        .doc-icon {
+            font-size: 2.5rem;
+        }
     </style>
 </head>
 <body>
@@ -631,6 +831,9 @@
         <ul>
             <li><a href="#about">À PROPOS</a></li>
             <li><a href="#features">SERVICES</a></li>
+            <li><a href="#essences">ESSENCES 3D</a></li>
+            <li><a href="#docs">DOCUMENTS</a></li>
+            <li><a href="#pricing">ABONNEMENTS</a></li>
             <li><a href="#marketplace">MARCHÉ</a></li>
             <li><a href="#pillars">5 PILIERS</a></li>
             <li><a href="#roadmap">FEUILLE DE ROUTE</a></li>
@@ -716,6 +919,178 @@
             <h3>Partenariats BRICS+</h3>
             <p>Chine, Inde, Russie, Moyen-Orient. Multipolarité économique, zéro dépendance.</p>
         </div>
+    </div>
+</section>
+
+<!-- 3D ESSENCES GALLERY -->
+<section id="essences">
+    <h2>Galerie 3D des <span>12 Essences</span></h2>
+    <p>Découvrez les essences de bois durables du Gabon en haute définition 3D interactive.</p>
+    <div class="essences-grid">
+        <div class="essence-card">
+            <div class="essence-front">
+                <div class="wood-texture" style="background: #C19A6B;">TEXTURE OKOUMÉ</div>
+                <h3>Okoumé</h3>
+            </div>
+            <div class="essence-back">Léger, tendre, idéal pour le contreplaqué.</div>
+        </div>
+        <div class="essence-card">
+            <div class="essence-front">
+                <div class="wood-texture" style="background: #A52A2A;">TEXTURE PADOUK</div>
+                <h3>Padouk</h3>
+            </div>
+            <div class="essence-back">Rouge vif, durable, bois d'ébénisterie de luxe.</div>
+        </div>
+        <div class="essence-card">
+            <div class="essence-front">
+                <div class="wood-texture" style="background: #DEB887;">TEXTURE MOVINGUI</div>
+                <h3>Movingui</h3>
+            </div>
+            <div class="essence-back">Jaune citron, grain fin, menuiserie intérieure.</div>
+        </div>
+        <div class="essence-card">
+            <div class="essence-front">
+                <div class="wood-texture" style="background: #4B3621;">TEXTURE KÉVAZINGO</div>
+                <h3>Kévazingo</h3>
+            </div>
+            <div class="essence-back">Prestigieux, veinage exceptionnel, haut de gamme.</div>
+        </div>
+        <div class="essence-card">
+            <div class="essence-front">
+                <div class="wood-texture" style="background: #5C4033;">TEXTURE AZOBÉ</div>
+                <h3>Azobé</h3>
+            </div>
+            <div class="essence-back">Hyper-dur, imputrescible, travaux hydrauliques.</div>
+        </div>
+        <div class="essence-card">
+            <div class="essence-front">
+                <div class="wood-texture" style="background: #BC8F8F;">TEXTURE MOABI</div>
+                <h3>Moabi</h3>
+            </div>
+            <div class="essence-back">Bois noble, médicinal, grande longévité.</div>
+        </div>
+        <div class="essence-card">
+            <div class="essence-front">
+                <div class="wood-texture" style="background: #1A1A1A;">TEXTURE EBÈNE</div>
+                <h3>Ebène</h3>
+            </div>
+            <div class="essence-back">Noir profond, très dense, luxe et instruments.</div>
+        </div>
+        <div class="essence-card">
+            <div class="essence-front">
+                <div class="wood-texture" style="background: #CD853F;">TEXTURE IROKO</div>
+                <h3>Iroko</h3>
+            </div>
+            <div class="essence-back">Stable, durable, ponts de bateaux et extérieur.</div>
+        </div>
+        <div class="essence-card">
+            <div class="essence-front">
+                <div class="wood-texture" style="background: #F4A460;">TEXTURE BILINGA</div>
+                <h3>Bilinga</h3>
+            </div>
+            <div class="essence-back">Jaune d'or, résistant aux termites.</div>
+        </div>
+        <div class="essence-card">
+            <div class="essence-front">
+                <div class="wood-texture" style="background: #6F4E37;">TEXTURE TALI</div>
+                <h3>Tali</h3>
+            </div>
+            <div class="essence-back">Très lourd, traverses de chemin de fer.</div>
+        </div>
+        <div class="essence-card">
+            <div class="essence-front">
+                <div class="wood-texture" style="background: #D2B48C;">TEXTURE FRAQUÉ</div>
+                <h3>Fraqué</h3>
+            </div>
+            <div class="essence-back">Clair, facile à travailler, moulures.</div>
+        </div>
+        <div class="essence-card">
+            <div class="essence-front">
+                <div class="wood-texture" style="background: #EEDC82;">TEXTURE AKOSSIKA</div>
+                <h3>Akossika</h3>
+            </div>
+            <div class="essence-back">Clair, stable, ameublement léger.</div>
+        </div>
+    </div>
+</section>
+
+<!-- DOCUMENTS SECTION -->
+<section id="docs">
+    <h2>Centre de <span>Téléchargement</span></h2>
+    <p>Accédez aux documents officiels et guides d'investissement du secteur forestier gabonais.</p>
+    <div class="docs-grid">
+        <a href="assets/docs/Code_Forestier_Gabon.pdf" class="doc-item" download>
+            <div class="doc-icon">📜</div>
+            <div>
+                <h4>Nouveau Code Forestier 2024</h4>
+                <p>Version intégrale téléchargeable (PDF)</p>
+            </div>
+        </a>
+        <a href="assets/docs/ZES_Nkok_Investissement.pdf" class="doc-item" download>
+            <div class="doc-icon">🏭</div>
+            <div>
+                <h4>Guide d'Investissement ZES Nkok</h4>
+                <p>Installation des entreprises et procédures</p>
+            </div>
+        </a>
+        <a href="assets/docs/Avantages_Fiscaux_Nkok.pdf" class="doc-item" download>
+            <div class="doc-icon">💎</div>
+            <div>
+                <h4>Avantages Fiscaux & Douaniers</h4>
+                <p>Détails des incitations à Nkok</p>
+            </div>
+        </a>
+    </div>
+</section>
+
+<!-- PRICING SECTION -->
+<section id="pricing">
+    <h2>Formules d'<span>Abonnement</span></h2>
+    <p>Choisissez le plan adapté à vos besoins pour accéder à la mise en relation boursière NOAH.</p>
+    <div class="pricing-grid">
+        <div class="pricing-card">
+            <h3>Starter</h3>
+            <div class="price-tag">50 000 <span>FCFA/mois</span></div>
+            <ul class="pricing-features">
+                <li>5 mises en relation / mois</li>
+                <li>Accès documents basiques</li>
+                <li>Commission : 10% / transaction</li>
+            </ul>
+            <button class="btn btn-secondary" style="color: var(--noir); border-color: var(--noir);">S'ABONNER</button>
+        </div>
+        <div class="pricing-card popular">
+            <h3>Business</h3>
+            <div class="price-tag">150 000 <span>FCFA/mois</span></div>
+            <ul class="pricing-features">
+                <li>20 mises en relation / mois</li>
+                <li>Accès complet ZES Nkok</li>
+                <li>Accès Code Forestier</li>
+                <li>Commission : 7% / transaction</li>
+                <li>Support prioritaire</li>
+            </ul>
+            <button class="btn btn-primary">S'ABONNER</button>
+        </div>
+        <div class="pricing-card">
+            <h3>Premium</h3>
+            <div class="price-tag">500 000 <span>FCFA/mois</span></div>
+            <ul class="pricing-features">
+                <li>Mises en relation illimitées</li>
+                <li>Account Manager dédié</li>
+                <li>Commission : 5% / transaction</li>
+                <li>Accès Finance Verte</li>
+                <li>Accompagnement Certification</li>
+            </ul>
+            <button class="btn btn-secondary" style="color: var(--noir); border-color: var(--noir);">S'ABONNER</button>
+        </div>
+    </div>
+
+    <div style="margin-top: 40px; background: var(--bleu); color: white; padding: 30px; border-radius: 8px; text-align: center;">
+        <h4>Méthodes de Paiement Acceptées</h4>
+        <div style="display: flex; justify-content: center; gap: 40px; margin-top: 20px; font-family: 'Bebas Neue', sans-serif; letter-spacing: 2px;">
+            <div>📱 AIRTEL MONEY : +241 77 21 18 97</div>
+            <div>🏦 VIREMENT BANCAIRE (BGFI/UGB)</div>
+        </div>
+        <p style="margin-top: 20px; font-size: 0.9rem; opacity: 0.8;">Le paiement préalable est obligatoire pour l'activation instantanée de votre accès Agent AI.</p>
     </div>
 </section>
 
@@ -910,6 +1285,8 @@
             <p>📧 info@gab-bois.ga</p>
             <p>📱 +241 77 07 46 80</p>
             <p>📍 Libreville, Gabon</p>
+            <p>🏢 N°RCCM : GA-LBV-A10-02022</p>
+            <p>📄 N°NIF : 0200 6452 X</p>
         </div>
     </div>
 
@@ -925,6 +1302,14 @@
         <p style="margin-top: 12px; font-style: italic;">"Que le Gabon ne soit plus jamais riche pour les autres et pauvre pour les siens."</p>
     </div>
 </footer>
+
+<!-- WHATSAPP WIDGET -->
+<a href="https://wa.me/24177211897" class="whatsapp-widget" target="_blank">
+    <span class="whatsapp-tooltip">Besoin d'aide ? Chattez avec NOAH-AI 🤖</span>
+    📱
+</a>
+
+<script src="chatbot.js"></script>
 
 <script>
     // Smooth scroll for navigation links
